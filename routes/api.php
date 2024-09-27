@@ -23,6 +23,4 @@ Route::middleware('throttle:120,1')->group(function () {
     Route::get('servers', [ServerApiController::class, 'index']);
     Route::get('ovpn-file/{serverId}', [OVPNFileApiController::class, 'getOvpnFile']);
 });
-// Route::get('servers', [ServerApiController::class, 'index']);
-// Route::get('ovpn-file/{serverId}', [OVPNFileApiController::class, 'getOvpnFile']);
 Route::post('disconnect', [OVPNFileApiController::class, 'disconnect']);

@@ -5,7 +5,7 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<title>Syntrans - Bootstrap4 Admin Template</title>
+	<title>GO VPN</title>
 
 	<!-- Favicon -->
 	<link rel="icon" href="{{ asset('assets/images/favicon-32x32.png') }}" type="image/png" />
