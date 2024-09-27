@@ -4,19 +4,7 @@
             <a href="javascript:;" class="toggle-btn">	<i class="bx bx-menu"></i>
             </a>
         </div>
-        {{-- <div class="flex-grow-1 search-bar">
-            <div class="input-group">
-                <div class="input-group-prepend search-arrow-back">
-                    <button class="btn btn-search-back" type="button"><i class="bx bx-arrow-back"></i>
-                    </button>
-                </div>
-                <input type="text" class="form-control" placeholder="search" />
-                <div class="input-group-append">
-                    <button class="btn btn-search" type="button"><i class="lni lni-search-alt"></i>
-                    </button>
-                </div>
-            </div>
-        </div> --}}
+       
         <div class="right-topbar ml-auto">
             <ul class="navbar-nav">
                 <li class="nav-item search-btn-mobile">
@@ -300,7 +288,7 @@
                             <img src="https://via.placeholder.com/110x110" class="user-img" alt="user avatar">
                         </div>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right">	
+                    <div class="dropdown-menu dropdown-menu-right">
                         {{-- <a class="dropdown-item" href="javascript:;"><i
                                 class="bx bx-user"></i><span>Profile</span></a>
                         <a class="dropdown-item" href="javascript:;"><i

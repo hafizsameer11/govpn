@@ -5,11 +5,7 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<<<<<<< HEAD
-
-=======
 	<title>Go Vpn</title>
->>>>>>> 23c20d4a885e9d00614632e7ebc05da8616da27f
 
 	<!-- Favicon -->
 	<link rel="icon" href="{{ asset('assets/images/favicon-32x32.png') }}" type="image/png" />

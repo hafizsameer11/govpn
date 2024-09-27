@@ -2,8 +2,7 @@
 
 @section('content')
 
-    <body class="bg-theme bg-theme1">
-        <div class="wrapper">
+
             <div class="page-wrapper">
                 <div class="page-content-wrapper">
                     <div class="page-content">
@@ -46,8 +45,5 @@
                     </div>
                 </div>
             </div>
-            <div class="overlay toggle-btn-mobile"></div>
-            <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
-        </div>
-    </body>
+  
 @endsection

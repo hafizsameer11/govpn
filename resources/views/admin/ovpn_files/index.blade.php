@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('content')
-<div class="wrapper">
+
     <div class="page-wrapper">
         <div class="page-content-wrapper">
             <div class="page-content">
@@ -61,5 +61,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @endsection

@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     @include('admin.layouts.head')
-<body>
-    @include('admin.layouts.sidebar')
-    @include('admin.layouts.header')
+<body class="bg-theme bg-theme1">
 
 
-    <div class="main">
+    <div class="wrapper">
+        @include('admin.layouts.sidebar')
+        @include('admin.layouts.header')
         @yield('content')
+        <div class="overlay toggle-btn-mobile"></div>
+        @include('admin.layouts.footer')
     </div>
-
-    @include('admin.layouts.footer')
+    {{-- <div class="overlay toggle-btn-mobile"></div> --}}
     @include('admin.layouts.script')
     {{-- @yield('additional-script')     --}}
 
