@@ -15,7 +15,7 @@ class AdminDashboardController extends Controller
     {
         $totalServers = Server::count();
         $totalConnections = ModelsConnection::count();
-        $totalLoad = Server::sum('load');
+        $totalLoad = Server::avg('load');
 
         return view('admin.dashboard', compact('totalServers', 'totalConnections', 'totalLoad'));
     }

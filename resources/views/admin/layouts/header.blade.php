@@ -4,7 +4,7 @@
             <a href="javascript:;" class="toggle-btn">	<i class="bx bx-menu"></i>
             </a>
         </div>
-       
+
         <div class="right-topbar ml-auto">
             <ul class="navbar-nav">
                 <li class="nav-item search-btn-mobile">

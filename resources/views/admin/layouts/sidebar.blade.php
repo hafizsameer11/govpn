@@ -26,91 +26,48 @@
                 <div class="menu-title">Servers</div>
             </a>
             <ul>
-                <li> <a href="{{ route('admin.servers.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New
-                        Server</a></li>
-                <li> <a href="{{ route('admin.servers.index') }}"><i class="bx bx-right-arrow-alt"></i>All Servers</a>
-                </li>
+                <li> <a href="{{ route('admin.servers.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Server</a></li>
+                <li> <a href="{{ route('admin.servers.index') }}"><i class="bx bx-right-arrow-alt"></i>All Servers</a></li>
             </ul>
         </li>
 
         <!-- OVPN Files Management -->
-       <!-- OVPN Files Management -->
-<li>
-    <a class="has-arrow" href="javascript:;">
-        <div class="parent-icon"><i class="bx bx-file"></i></div>
-        <div class="menu-title">OVPN Files</div>
-    </a>
-    <ul>
-        <li> <a href="{{ route('admin.ovpn-files.create') }}"><i class="bx bx-right-arrow-alt"></i>Add OVPN File</a></li>
-        <li> <a href="{{ route('admin.ovpn-files.index') }}"><i class="bx bx-right-arrow-alt"></i>All OVPN Files</a></li>
-    </ul>
-</li>
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bx bx-file"></i></div>
+                <div class="menu-title">OVPN Files</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('admin.ovpn-files.create') }}"><i class="bx bx-right-arrow-alt"></i>Add OVPN File</a></li>
+                <li> <a href="{{ route('admin.ovpn-files.index') }}"><i class="bx bx-right-arrow-alt"></i>All OVPN Files</a></li>
+            </ul>
+        </li>
 
-
-<!-- Countries Management -->
-<li>
-    <a class="has-arrow" href="javascript:;">
-        <div class="parent-icon"><i class="bx bx-globe"></i></div>
-        <div class="menu-title">Countries</div>
-    </a>
-    <ul>
-        <li> <a href="{{ route('admin.countries.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Country</a></li>
-        <li> <a href="{{ route('admin.countries.index') }}"><i class="bx bx-right-arrow-alt"></i>All Countries</a></li>
-    </ul>
-</li>
-
+        <!-- Countries Management -->
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bx bx-globe"></i></div>
+                <div class="menu-title">Countries</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('admin.countries.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Country</a></li>
+                <li> <a href="{{ route('admin.countries.index') }}"><i class="bx bx-right-arrow-alt"></i>All Countries</a></li>
+            </ul>
+        </li>
 
         <!-- Optional Features for Future -->
-        {{--
-        <!-- Connections Management -->
-        <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bx bx-network-chart"></i></div>
-                <div class="menu-title">Connections</div>
-            </a>
-            <ul>
-                <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Active Connections</a></li>
-                <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Disconnected Connections</a></li>
-            </ul>
-        </li>
+        {{-- Additional features here --}}
 
-        <!-- Users Management -->
+        <!-- Logout Option -->
         <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bx bx-group"></i></div>
-                <div class="menu-title">Users</div>
+            <a href="{{ route('logout') }}" >
+                <div class="parent-icon"><i class="bx bx-log-out"></i></div>
+                <div class="menu-title">Logout</div>
             </a>
-            <ul>
-                <li> <a href="{{ route('users.index') }}"><i class="bx bx-right-arrow-alt"></i>All Users</a></li>
-                <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Profile Settings</a></li>
-            </ul>
+            {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form> --}}
         </li>
-
-        <!-- Subscriptions Management -->
-        <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bx bx-wallet"></i></div>
-                <div class="menu-title">Subscriptions</div>
-            </a>
-            <ul>
-                <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>All Subscriptions</a></li>
-                <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Manage Plans</a></li>
-            </ul>
-        </li>
-
-        <!-- Reports -->
-        <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bx bx-bar-chart"></i></div>
-                <div class="menu-title">Reports</div>
-            </a>
-            <ul>
-                <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Server Usage</a></li>
-                <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Connection Logs</a></li>
-                <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>User Activity</a></li>
-            </ul>
-        </li>
-        --}}
     </ul>
     <!--end navigation-->
 </div>
