@@ -420,3 +420,10 @@ $(function () {
 		}
 	});
 });
+
+
+$(document).ready(function() {
+    $('.toggle-btn').on('click', function() {
+        $('.sidebar-wrapper').toggleClass('active');
+    });
+});

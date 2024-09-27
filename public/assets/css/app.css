@@ -43,6 +43,14 @@ html {
 
 }
 
+.sidebar-wrapper {
+    transition: all 0.3s ease;
+}
+
+.sidebar-wrapper.active {
+    margin-left: -250px; /* Example for sliding sidebar out */
+}
+
 body {
 
 	font-family: 'Open Sans', sans-serif;
