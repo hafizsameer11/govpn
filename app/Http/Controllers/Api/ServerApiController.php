@@ -11,7 +11,7 @@ class ServerApiController extends Controller
 {
     public function index()
 {
-    $countries = Country::with('servers.ovpnFiles')->get();
+    $countries = Country::with('servers')->get();
 
     // Modify the countries data to include the full URL for the flag
     $countries = $countries->map(function ($country) {
