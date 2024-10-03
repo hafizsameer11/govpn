@@ -17,15 +17,19 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/login', [LoginController::class, 'loginshow'])->name('login.show');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('login', [LoginController::class, 'login'])->name('login');
-Route::middleware(['auth'])->group(function () {
-    Route::get('/', function () {
+// Route::middleware(['auth'])->group(function () {
+
+// });
+Route::middleware(['auth'])->group(function(){
+       Route::get('/', function () {
         return redirect()->route('dashboard');
     });
-    Route::get('/dashboard',function(){
-return redirect()->route('dashboard');
+    Route::get('/dashboard', function () {
+        return redirect()->route('dashboard');
     })->name('dashboard.index');
     Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('admin/dashboard/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
@@ -39,5 +43,4 @@ return redirect()->route('dashboard');
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('servers', AdminServerController::class);
     });;
-
 });

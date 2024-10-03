@@ -10,12 +10,20 @@ use Illuminate\Http\Request;
 class ServerApiController extends Controller
 {
     public function index()
-    {
-        // Cache the server list for 10 minutes to reduce database queries
-        $countries = Cache::remember('countries_with_servers', 600, function () {
-            return Country::with('servers.ovpnFiles')->get();
-        });
+{
+    // Fetch countries with related servers and ovpnFiles without caching
+    $countries = Country::with('servers.ovpnFiles')->get();
 
-        return response()->json($countries);
-    }
+    // Modify the countries data to include the full URL for the flag
+    $countries = $countries->map(function ($country) {
+        if ($country->flag) {
+            $country->flag = asset('storage/' . $country->flag);  // Generate full URL for the flag
+        }
+        return $country;
+    });
+
+    // Return the result as a JSON response
+    return response()->json($countries);
+}
+
 }

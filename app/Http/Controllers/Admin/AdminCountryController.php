@@ -28,9 +28,16 @@ class AdminCountryController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
+            'flag' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Validate the flag as an image
         ]);
 
-        Country::create($request->all());
+        $data = $request->all();
+        if ($request->hasFile('flag')) {
+            $flagPath = $request->file('flag')->store('flags', 'public');  // Store in 'storage/app/public/flags'
+            $data['flag'] = $flagPath;
+        }
+
+        Country::create($data);
 
         return redirect()->route('admin.countries.index')->with('success', 'Country created successfully.');
     }
