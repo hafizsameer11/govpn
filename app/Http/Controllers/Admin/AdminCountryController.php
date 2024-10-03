@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Country;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminCountryController extends Controller
 {
@@ -50,15 +51,36 @@ class AdminCountryController extends Controller
 
     // Update the specified country
     public function update(Request $request, Country $country)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-        ]);
+{
+    // Validate input including optional flag file upload
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'flag' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'  // Optional flag validation
+    ]);
 
-        $country->update($request->all());
+    // Collect data for update
+    $data = $request->only('name');
 
-        return redirect()->route('admin.countries.index')->with('success', 'Country updated successfully.');
+    // Check if a new flag is uploaded
+    if ($request->hasFile('flag')) {
+        // Store the uploaded flag in the 'flags' folder in public storage
+        $flagPath = $request->file('flag')->store('flags', 'public');
+
+        // Add the new flag path to the update data
+        $data['flag'] = $flagPath;
+
+        // Optionally: Delete the old flag from storage if needed
+        if ($country->flag) {
+            Storage::disk('public')->delete($country->flag);
+        }
     }
+
+    // Update the country record with the new data
+    $country->update($data);
+
+    return redirect()->route('admin.countries.index')->with('success', 'Country updated successfully.');
+}
+
 
     // Remove the specified country
     public function destroy(Country $country)

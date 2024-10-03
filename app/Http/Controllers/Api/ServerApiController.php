@@ -11,7 +11,6 @@ class ServerApiController extends Controller
 {
     public function index()
 {
-    // Fetch countries with related servers and ovpnFiles without caching
     $countries = Country::with('servers.ovpnFiles')->get();
 
     // Modify the countries data to include the full URL for the flag
