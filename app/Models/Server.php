@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Server extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'country_id', 'load','ip_address'];
+    protected $fillable = ['name', 'country_id', 'load','ip_address','isPremium'];
 
     public function country()
     {

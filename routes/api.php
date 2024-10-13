@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\ApiPlanController;
 use App\Http\Controllers\Api\OVPNFileApiController;
 use App\Http\Controllers\Api\ServerApiController;
+use App\Http\Controllers\Api\SubscriptionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +26,7 @@ Route::middleware('throttle:120,1')->group(function () {
     Route::get('ovpn-file/{serverId}', [OVPNFileApiController::class, 'getOvpnFile']);
 });
 Route::post('disconnect', [OVPNFileApiController::class, 'disconnect']);
+Route::get('plans', [ApiPlanController::class, 'index']);
+
+Route::post('subscribe', [SubscriptionController::class, 'store']);
+Route::post('checksubscription', [SubscriptionController::class, 'checksubscription']);

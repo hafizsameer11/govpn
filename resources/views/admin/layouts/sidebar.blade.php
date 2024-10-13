@@ -55,6 +55,16 @@
             </ul>
         </li>
 
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bx bx-dollar"></i></div>
+                <div class="menu-title">Plans</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('plans.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Plan</a></li>
+                <li> <a href="{{ route('plans.index') }}"><i class="bx bx-right-arrow-alt"></i>All PLans</a></li>
+            </ul>
+        </li>
         <!-- Optional Features for Future -->
         {{-- Additional features here --}}
 

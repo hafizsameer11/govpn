@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminCountryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminOVPNFileController;
+use App\Http\Controllers\Admin\AdminPlanController;
 use App\Http\Controllers\Admin\AdminServerController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -43,4 +44,11 @@ Route::middleware(['auth'])->group(function(){
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('servers', AdminServerController::class);
     });;
+    //routes for plan
+    Route::get('/plans',[AdminPlanController::class,'index'])->name('plans.index');
+    Route::get('/create/plan',[AdminPlanController::class,'create'])->name('plans.create');
+    Route::post('/store/plan',[AdminPlanController::class,'store'])->name('plans.store');
+    Route::get('/edit/plan/{id}',[AdminPlanController::class,'edit'])->name('plans.edit');
+    Route::post('/update/plan/{id}',[AdminPlanController::class,'update'])->name('plans.update');
+    Route::delete('/delete/plan/{id}',[AdminPlanController::class,'destroy'])->name('plans.destroy');
 });

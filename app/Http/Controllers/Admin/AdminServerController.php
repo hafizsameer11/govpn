@@ -29,7 +29,8 @@ class AdminServerController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'country_id' => 'required|exists:countries,id',
-            'ip_address'=>'required'
+            'ip_address'=>'required',
+            'isPremium'=>'required'
         ]);
 
         Server::create($request->all());
@@ -47,6 +48,7 @@ class AdminServerController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'country_id' => 'required|exists:countries,id',
+            'isPremium'=>'required'
         ]);
 
         $server->update($request->all());

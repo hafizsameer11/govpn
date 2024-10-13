@@ -32,55 +32,32 @@
                                     </a>
                                 </div>
                                 <hr />
-                                <form action="{{ route('admin.servers.update', $server->id) }}" method="POST">
+                                <form action="{{ route('plans.update', $plan->id) }}" method="POST">
                                     @csrf
-                                    @method('PUT') <!-- For updating an existing server -->
+
                                     <!-- Server Name -->
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
-                                            <label for="serverName">Server Name</label>
-                                            <input type="text" class="form-control" id="serverName" name="name" value="{{ $server->name }}" required>
+                                            <label for="serverName">Title /label>
+                                            <input type="text" class="form-control" id="serverName" name="title" value="{{ $plan->title }}" required>
                                         </div>
                                         <!-- IP Address -->
                                         <div class="col-md-6 mb-3">
-                                            <label for="ipAddress">IP Address</label>
-                                            <input type="text" class="form-control" id="ipAddress" name="ip_address" value="{{ $server->ip_address }}" required>
+                                            <label for="ipAddress">Duration</label>
+                                            <input type="text" class="form-control" id="ipAddress" name="duration" value="{{ $plan->duration }}" required>
                                         </div>
                                     </div>
 
                                     <!-- Country Selection -->
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
-                                            <label for="country">Country</label>
-                                            <select class="custom-select" id="country" name="country_id" required>
-                                                <option selected disabled value="">Choose Country...</option>
-                                                @foreach ($countries as $country)
-                                                    <option value="{{ $country->id }}" {{ $server->country_id == $country->id ? 'selected' : '' }}>
-                                                        {{ $country->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="country">Premium</label>
-                                            <select class="custom-select" id="country" name="isPremium" required>
-                                                <option selected disabled value="">Select Option</option>
-                                                <option @if ($server->isPremium=="true")
-                                                    selected
-                                                @endif  value="true">Yes</option>
-                                                <option
-                                                @if($server->isPremium=="false")
-                                                selected
-                                                @endif
-
-                                                    value="false">No</option>
-                                            </select>
+                                            <label for="country">Price</label>
+                                           <input type="text" class="form-control" name="price" value="{{$plan->price}}">
                                         </div>
                                     </div>
-                               
 
                                     <!-- Submit Button -->
-                                    <button class="btn btn-primary" type="submit">Update Server</button>
+                                    <button class="btn btn-primary" type="submit">Update Plan</button>
                                 </form>
                             </div>
                         </div>

@@ -59,7 +59,16 @@
                                                 @endforeach
                                             </select>
                                         </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="country">Premium</label>
+                                            <select class="custom-select" id="country" name="isPremium" required>
+                                                <option selected disabled value="">Select Option</option>
+                                                <option value="true">Yes</option>
+                                                <option value="false">No</option>
+                                            </select>
+                                        </div>
                                     </div>
+
 
                                     <!-- Submit Button -->
                                     <button class="btn btn-primary" type="submit">Add Server</button>
@@ -71,7 +80,7 @@
                 </div>
             </div>
 
-           
+
 
 
     @endsection
