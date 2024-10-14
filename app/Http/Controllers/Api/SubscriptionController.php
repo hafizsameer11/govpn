@@ -11,6 +11,7 @@ class SubscriptionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            
             'plan_id' => 'required',
             'deviceId' => 'required'
         ]);

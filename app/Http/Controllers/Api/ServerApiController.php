@@ -9,20 +9,36 @@ use Illuminate\Http\Request;
 
 class ServerApiController extends Controller
 {
-    public function index()
+   public function index()
 {
     $countries = Country::with('servers')->get();
 
-    // Modify the countries data to include the full URL for the flag
+    // Modify the countries data
     $countries = $countries->map(function ($country) {
         if ($country->flag) {
-            $country->flag = asset('storage/' . $country->flag);  // Generate full URL for the flag
+            // Generate full URL for the country's flag
+            $country->flag = asset('storage/' . $country->flag);
         }
+
+        // Modify the servers for each country
+        $country->servers = $country->servers->map(function ($server) {
+            if ($server->isPremium=="true") {
+                // Add the premium_flag attribute with the correct image path
+                $server->premium_flag = asset('storage/icons/premium.png');
+            }
+
+            // Add signal attribute with signal image path
+            $server->signal = asset('storage/icons/signal.png');
+
+            return $server;
+        });
+
         return $country;
     });
 
-    // Return the result as a JSON response
+    // Return the modified result as a JSON response
     return response()->json($countries);
 }
+
 
 }
