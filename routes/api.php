@@ -27,6 +27,7 @@ Route::middleware('throttle:120,1')->group(function () {
 });
 Route::post('disconnect', [OVPNFileApiController::class, 'disconnect']);
 Route::get('plans', [ApiPlanController::class, 'index']);
+Route::get('countryflag', [ServerApiController::class, 'countryflag']);
 
 Route::post('subscribe', [SubscriptionController::class, 'store']);
 Route::post('checksubscription', [SubscriptionController::class, 'checksubscription']);
