@@ -32,13 +32,13 @@ class ServerApiController extends Controller
     public function countryflag(Request $request)
     {
         $ip = $request->ip;
-        //find  country by ip
-        $server = Server::where('ip_address', $ip)->with('country')->first();
-        if ($server) {
-            return response()->json(asset('storage/' . $server->country->flag));
+        return response()->json($ip);
+        // $server = Server::where('ip_address', $ip)->with('country')->first();
+        // if ($server) {
+        //     return response()->json(asset('storage/' . $server->country->flag));
 
-        }else{
-            return response()->json(['success'=>false,"message"=>"Server Not Found"],404);
-        }
+        // }else{
+        //     return response()->json(['success'=>false,"message"=>"Server Not Found"],404);
+        // }
     }
 }
