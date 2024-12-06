@@ -17,6 +17,7 @@ class OVPNFileApiController extends Controller
     public function getOvpnFile($serverId, Request $request)
 {
     try {
+        $vpn_username='super-vpn-'.uniqid();
         // Find the server and OVPN file based on server ID
         $server = Server::findOrFail($serverId);
         $ovpnFile = OVPNFile::where('server_id', $server->id)
@@ -27,7 +28,7 @@ class OVPNFileApiController extends Controller
             return response()->json(['error' => 'OVPN file not found'], 404);
         }
 
-        LogConnectionJob::dispatch($server->id, $request->ip(), $request->input('vpn_username'));
+        LogConnectionJob::dispatch($server->id, $request->ip(), $vpn_username);
 
         $ovpnFile->incrementUsage();
 
@@ -51,8 +52,8 @@ class OVPNFileApiController extends Controller
     public function disconnect(Request $request)
     {
         try {
-            $connection = Connection::where('vpn_username', $request->input('vpn_username'))
-                                    ->where('server_id', $request->input('server_id'))
+            $connection = Connection
+                                    ::where('server_id', $request->input('server_id'))
                                     ->firstOrFail();
             $connection->server->decrementLoad();
             $connection->delete();
